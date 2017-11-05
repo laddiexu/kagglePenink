@@ -6,4 +6,6 @@ dist/*
 build/*
 input/*
 result/*
+!input/README.md
+
 
