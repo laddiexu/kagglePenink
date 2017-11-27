@@ -8,4 +8,5 @@ input/*
 result/*
 !input/README.md
 ipynb_checkpoints
+__pycache__/*
 
