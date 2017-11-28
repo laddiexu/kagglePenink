@@ -30,3 +30,21 @@ def creatMask(tx,ty,tl,input_shape):
     attention_mask = K.variable(value = attention_mask,dtype ='float32',name = 'attention_mask')
     return attention_mask
 
+def upSampleing(x_att,lambd):
+    input_shape = x_amp.shape()
+    x_axis_mask = np.arange(0,input_shape[1])
+    y_axis_mask = np.arange(0,input_shape[2])
+    
+    x0_axis_mask  = np.floor(x_axis_mask / lambd).astype(int)
+    x1_axis_mask = x0_axis_mask + 1
+    y0_axis_mask = np.floor(y_axis_mask / lambd).astype(int)
+    y1_axis_mask = y0_axis_mask + 1
+    
+    Ia = x_att[x0_axis_mask,y0_axis_mask]
+    Ib = x_att[x0_axis_mask,y1_axis_mask]
+    Ic = x_att[x1_axis_mask,y0_axis_mask]
+    Id = x_att[x1_axis_mask,y1_axis_mask]
+
+    wa = np.abs(1 - )
+
+    
